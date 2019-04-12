@@ -9,7 +9,7 @@ Date: 4/2/19
 
 Project Topic: Fortnite Win Tracker
 
-URL: 
+URL: https://fortnitekilltracker.herokuapp.com/
 
 ---
 
@@ -21,7 +21,7 @@ Data point fields:
 - `kills`:     ...       `Type: Number`
 - `weapons`:     ...       `Type: Array`
 - `m_length`:     ...       `Type: Number`
-- `w_location`:     ...       `Type: String`
+- `location`:     ...       `Type: String`
 
 Schema: 
 ```javascript
@@ -32,9 +32,9 @@ Schema:
 
 ### 2. Add New Data
 
-HTML form route: `/...`
+HTML form route: `/addWin`
 
-POST endpoint route: `/api/...`
+POST endpoint route: `/api/addWin`
 
 Example Node.js POST request to endpoint: 
 ```javascript
@@ -42,12 +42,21 @@ var request = require("request");
 
 var options = { 
     method: 'POST',
-    url: 'http://localhost:3000/api/...',
+    url: 'http://localhost:3000/api/addWin',
     headers: { 
         'content-type': 'application/x-www-form-urlencoded' 
     },
-    form: { 
-       ...
+    form: {
+      id: 6,
+      kills: 5,
+      weapon1: "shotgun",
+      weapon2: "smg",
+      weapon3: "AR",
+      weapon4: "sniper",
+      weapon5: "medkit",
+      m_duration: 21.4,
+      w_location_letter: F,
+      w_location_number: 2
     } 
 };
 
@@ -60,18 +69,17 @@ request(options, function (error, response, body) {
 
 ### 3. View Data
 
-GET endpoint route: `/api/...`
+GET endpoint route: `/api/getWins`
 
 ### 4. Search Data
 
-Search Field: ...
+Search Field: w_location
 
 ### 5. Navigation Pages
 
 Navigation Filters
-1. name -> `  route  `
-2. ... -> `  ...  `
-3. ... -> `  ...  `
-4. ... -> `  ...  `
-5. ... -> `  ...  `
-
+1. First Win -> `/firstwin`
+2. Winningest Location -> `/Location`
+3. Shortest Win -> `/Shortest`
+4. Most Kills in a Game -> `/MostKills`
+5. Wins with No Heals -> `/Clutch`

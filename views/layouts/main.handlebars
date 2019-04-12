@@ -9,20 +9,27 @@
 </head>
 <div class="nav">
   <div>
-    <a href="/Players">Players</a>
-    <a href="/Sports">Sports</a>
-    <a href="/States">States</a>
-    <a href="/Alphabetical">Alphabetical</a>
-    <a href="/Championships">Championships</a>
+    <a href="/">Home</a>
+    <a href="/FirstWin">First Win</a>
+    <a href="/Location">Killer Location</a>
+    <a href="/Shortest">Shortest</a>
+    <a href="/MostKills">Most Kills</a>
+    <a href="/Clutch">Clutch</a>
   </div>
 </div>
-
 <body>
-  <button type="button" id="createNew">Enter a Team</button> {{{body}}}
+  <br>
+  {{{body}}}
+  <br><br><br>
+  <button onclick="window.location.href = '/addwin';">Add Win</button>
+   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
   <script>
-    $('#createNew').on('click', function() {
-      console.log("hi");
+    $('#createNew1').on('click', function() {
+      alert();
+    });
+    
+    $('#addWin').on('click', function(){
     });
   </script>
 </body>

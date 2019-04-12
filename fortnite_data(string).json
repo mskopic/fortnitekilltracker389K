@@ -1,0 +1,5 @@
+{"wins":[{"id":"1","kills":"2","weapons":"[shotgun,AR,sniper,shield,medkit]","match_length":"22.3","location":"D6"},
+	{"id":"2","kills":"3","weapons":"[shotgun,smg,AR,sniper,shield]","match_length":"19.9","location":"I8"},
+	{"id":"3","kills":"8","weapons":"[shotgun,smg,AR,sniper]","match_length":"17.6","location":"D6"},
+	{"id":"4","kills":"1","weapons":"[shotgun,smg,AR,sniper]","match_length":"20.1","location":"F2"},
+	{"id":"5","kills":"3","weapons":"[shotgun,AR,RPG,medkit,shield]","match_length":"24.0","location":"C5"}]}

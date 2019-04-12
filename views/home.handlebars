@@ -1,1 +1,154 @@
-Home
+{{#if found}}
+  <p>Search Win Map Coordinates</p>
+  <input id="search" type="text" placeholder="Search.. (ex: A5)">
+  <br><br>
+  <div id="results">
+    <ul id="search_results">
+    </ul>
+  </div
+
+
+  <br><br>
+  <h4>All Data:</h4>
+    <table id="table1" style="width:50%">
+      <tr>
+        <th>Win Number</th>
+        <th>Kills</th>
+        <th>Weapons</th>
+        <th>Game Duration</th>
+        <th>Win Location</th>
+      </tr>
+    {{#each data}}
+        <tr>
+          <th>{{this.id}}</th>
+          <th>{{this.kills}}</th>
+          <th>{{this.weapons}}</th>
+          <th>{{match_length}}</th>
+          <th id="loc">{{this.location}}</th>
+        </tr>
+    {{/each}}
+    </table>
+{{else}}
+    <h4>No Data Matches Search</h4>
+{{/if}}
+
+
+
+
+<script>
+  var _data = {};
+  var result = {};
+  var running = false;
+  var valid_letters = ["A","B","C","D","E","F","G","H","I"];
+  var valid_numbers = ["1","2","3","4","5","6","7","8","9"];
+  function validity(s, len) {
+    if (len > 1) {
+        if (valid_letters.includes(s[0]) && valid_numbers.includes(s[1])) {
+            return true;
+        }
+    } else {
+        if (valid_letters.includes(s[0])) {
+          return true;
+        }
+    }
+    return false;
+  }
+   
+
+  function insertResults(res) {
+    $("#results").empty();
+    var str = "";
+    if (res.size != 0) {
+        var keys = Object.keys(res)
+        //alert(keys)
+        for (var x=0; x < keys.length; x++) {
+          var possible = res[keys[x]];
+          //alert(possible.length);
+          for (var y=0; y < possible.length; y++) {
+            //alert("y=" + y);
+           // alert("<tr>" + possible[y] + "</tr>");
+            str = str.concat(possible[y]);
+            //("#search_results").append("<tr>" + possible[y] + "</tr>");
+          }
+        }
+    } else {
+      $("#results").append("<br><p>No Matches</p><br>");
+    }
+    //str = str.replace("th","li");
+    str = str.replace(/th/g, "li");
+    console.log(str);
+    $("#search_results").append(str);
+  }
+  
+
+  function searchPlace(dest) {
+    
+    var keys = Object.keys(_data);
+    keys.shift();
+    var len = keys.length;
+    for (var x=0; x < len; x++) {
+      //alert("does " + keys[x] + " include " + dest +"?" + keys[x].includes(dest));
+       if (keys[x].includes(dest)) {
+          //alert("searching " + dest + " in " + keys[x]);
+          result[keys[x]] = _data[keys[x]];
+        }
+    }
+    //alert("result " + result["D6"]);
+    return result;
+  }
+
+
+    $('#search').on('click', function () {
+      $("tr").each( function (index) {
+        
+        var i = this.innerHTML.lastIndexOf("loc");
+        var loc_key = this.innerHTML.substring(i+5, i+7).toString();
+        //alert(loc_key);
+        //alert(this.innerHTML);
+        if (loc_key in _data) {
+          _data[loc_key].push(this.innerHTML);
+        } else {
+          _data[loc_key] = new Array(this.innerHTML);
+        }
+        //alert(_data[loc_key]);
+
+      });
+
+      //alert(_data);
+      if (!running) {
+        running = true;
+        setInterval(function() {
+          var loc_search = $("#search").val();
+          if (loc_search.length == 0) {
+            $("#results").empty();
+          } else if (loc_search.length == 1) {
+            if (validity(loc_search, loc_search.length)) {
+               //var results = searchPlace(loc_search);
+               //alert(result);
+               //insertResults(results);
+               $("#results").empty();
+               $("#results").append("<br><p>Finding Results of " + loc_search + "</p><br>");
+            } else {
+                $("#results").empty();
+                $("#results").append("<br><p>No Matches</p><br>");
+            }
+          } else if (loc_search.length == 2) {
+            if (validity(loc_search, loc_search.length)) {
+              //var results = searchPlace(loc_search);
+              //alert(results["D6"]);
+              //insertResults(results);
+              $("#results").empty();
+              $("#results").append("<br><p>Finding Results of " + loc_search + "</p><br>");
+              //$("#results").append("<br><p>No Matches</p><br>");
+            } else {
+                $("#results").empty();
+                $("#results").append("<br><p>No Matches</p><br>");
+            }
+          } else { //greater than 2 letters, invalid
+            $("#results").empty();
+            $("#results").append("<br><p>No Matches</p><br>");
+          }
+        }, 500);
+      }
+    });
+</script>

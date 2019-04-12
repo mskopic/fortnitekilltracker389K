@@ -1,0 +1,88 @@
+<div class="add_win_form">
+    <h4>Add Win Below</h4>
+    <form id="newWinForm"action="/addwin/added" method="get">
+      Win Number:<br>
+      <input type="text" name="winnum" placeholder="Value > {{num_wins}}"><br>
+      Number of Kills:<br>
+      <input type="text" name="kills" placeholder="Value >= 0"><br>
+      Weapons Used (5 total weapon slots)<br>
+      <select name="weapon1">
+        <option value="shotgun">Shotgun</option>
+        <option value="smg">SMG</option>
+        <option value="AR">AR</option>
+        <option value="sniper">Sniper</option>
+        <option value="RPG">RPG</option>
+        <option value="medkit">Medkit</option>
+        <option value="shield">Shield</option>
+        <option value="empty_slot">Empty</option>
+      </select>
+      <select name="weapon2">
+        <option value="shotgun">Shotgun</option>
+        <option value="smg">SMG</option>
+        <option value="AR">AR</option>
+        <option value="sniper">Sniper</option>
+        <option value="RPG">RPG</option>
+        <option value="medkit">Medkit</option>
+        <option value="shield">Shield</option>
+        <option value="empty_slot">Empty</option>
+      </select>
+      <select name="weapon3">
+        <option value="shotgun">Shotgun</option>
+        <option value="smg">SMG</option>
+        <option value="AR">AR</option>
+        <option value="sniper">Sniper</option>
+        <option value="RPG">RPG</option>
+        <option value="medkit">Medkit</option>
+        <option value="shield">Shield</option>
+        <option value="empty_slot">Empty</option>
+      </select>
+      <select name="weapon4">
+        <option value="shotgun">Shotgun</option>
+        <option value="smg">SMG</option>
+        <option value="AR">AR</option>
+        <option value="sniper">Sniper</option>
+        <option value="RPG">RPG</option>
+        <option value="medkit">Medkit</option>
+        <option value="shield">Shield</option>
+        <option value="empty_slot">Empty</option>
+      </select>
+      <select name="weapon5">
+        <option value="shotgun">Shotgun</option>
+        <option value="smg">SMG</option>
+        <option value="AR">AR</option>
+        <option value="sniper">Sniper</option>
+        <option value="RPG">RPG</option>
+        <option value="medkit">Medkit</option>
+        <option value="shield">Shield</option>
+        <option value="empty_slot">Empty</option>
+      </select><br>
+      Match Duration (minutes):<br>
+      <input type="text" name="m_duration" placeholder="EX: 23.9"><br>
+      Win Location:<br>
+      <select name="w_location_letter">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+        <option value="F">F</option>
+        <option value="G">G</option>
+        <option value="H">H</option>
+        <option value="I">I</option>
+        <option value="J">J</option>
+      </select>
+      <select name="w_location_num">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select><br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>

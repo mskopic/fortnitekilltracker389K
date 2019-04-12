@@ -1,1 +1,0 @@
-{"wins":[{"id":1,"kills":1,"weapons":["shotgun","AR","sniper","slurp","mini"],"m_length":22.3,"w_location":"D5"},{"id":2,"kills":3,"weapons":["shotgun","smg","AR","sniper","mini"],"m_length":19.9,"w_location":"I8"}]}

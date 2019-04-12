@@ -1,0 +1,19 @@
+<h4>Clutch Wins(no medkits or shield):</h4>
+<table id="table1" style="width:50%">
+  <tr>
+    <th>Win Number</th>
+    <th>Kills</th>
+    <th>Weapons</th>
+    <th>Game Duration</th>
+    <th>Win Location</th>
+  </tr>
+{{#each s_data}}
+    <tr>
+      <th>{{this.id}}</th>
+      <th>{{this.kills}}</th>
+      <th>{{this.weapons}}</th>
+      <th>{{match_length}}</th>
+      <th id="loc">{{this.location}}</th>
+    </tr>
+{{/each}}
+</table>
